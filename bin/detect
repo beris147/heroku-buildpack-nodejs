@@ -17,8 +17,8 @@ error() {
 	exit 1
 }
 
-if [ -f "$1/package.json" ]; then
-  echo 'Node.js'
+if [ -f $1/package.json -a -f $1/server/package.json -a -f $1/server/.babelrc ]; then
+  echo 'Node.js with babel inside server'
   exit 0
 fi
 
