@@ -7,6 +7,12 @@ set -o errexit    # always exit on error
 set -o pipefail   # don't ignore exit codes when piping output
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
+# Set the type of build
+if [ ! -f "${ENV_DIR}/BUILD_TYPE" ]; then
+    echo "BUILD_TYPE was not set. Aborting" | indent
+    exit 1
+fi
+
 ### Constants
 
 # This is used by the buildpack stdlib for metrics
