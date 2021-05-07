@@ -20,12 +20,6 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd "$(dirname "${0:-}")"; cd ..; pwd)
 
-# Set the type of build
-if [ ! -f "${ENV_DIR}/BUILD_TYPE" ]; then
-    echo "BUILD_TYPE was not set. Aborting"
-    exit 1
-fi
-
 ### Load dependencies
 
 # shellcheck source=lib/vendor/stdlib_v7.sh
