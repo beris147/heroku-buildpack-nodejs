@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+BUILD_TYPE="$(cat "${ENV_DIR}/BUILD_TYPE")"
+
 cat << EOF
 addons: []
 default_process_types:
-  web: npm run server
+  web: npm run $BUILD_TYPE
 EOF
